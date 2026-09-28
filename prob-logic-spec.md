@@ -1,0 +1,16 @@
+Write a web app for probabilistic inference on logical equations.
+- given a set of logical relationships, the app builds a probabilistic graphical model based on those relationships and performs inference on the model to calculate marginal probabilities given data/evidence attached to nodes
+- The PGM is constructed as a factor graph, with factors including logical implication, AND, OR, and NOT.
+- Inference is done using message passing.
+- Example: There is a proposion B of unknown truth value. There are propositions Ai that imply B. There are propositions Cj implied by B. Given evidence factors attached to the Ai and Cj, calculate the marginal distribution of the truth value of B.
+- Create a number of examples of interesting sets of logical relationships, ideally mapping to interesting real world examples such as medical diagnosis, fault analysis or scientific reasoning
+- Create an editor that allows editing the logical relationships, priors and evidence factors interactively.
+- Add extra functionality such that there are available evidence factors that can be obtained at a cost (say, by performing an experiment.) Calculate the expected entropy reduction of obtaining that evidence to create an active reasoning process that can decide which evidence to obtain next.
+- Figure out how to deal with mutually exclusive propositions, such as in a multiple choice test scenario.
+- Allow compound nodes, e.g. A1 AND A2 (constructed with the AND factor), which can then feed into (A1 AND A2) -> B. 
+- Explore additional inference mechanisms such as sampling.
+- Explore the use of hierarchical Bayesian modelling to have distributions over distributions. So, either the prior of a binary variable is Bernoulli directly, or that Bernoulli has a conjugate Beta prior. 
+- This should be a playground to explore how we can do probabilistic reasoning based on logical relationships.
+- Is it possible to also model beliefs about the relationships, such that we may not know for sure that Ai -> B, but that this is only the case with a given probability that can be estimated, again with Bayesian inference?
+- The entire app should be a playground to experiment with these ideas. Interactivity, explanation and visualisation are important.
+- Also create an "about" section that explains how to use the app and how it works under the hood.

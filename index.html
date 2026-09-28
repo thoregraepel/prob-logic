@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Probabilistic Logic Playground</title>
+<meta name="description" content="Build logical relationships, compile them to a factor graph, and do probabilistic inference by message passing.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>⊨</text></svg>">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="logo" aria-hidden="true">⊨</span>
+    <h1>Probabilistic Logic Playground</h1>
+  </div>
+  <div class="topbar-mid" id="engine-slot"></div>
+  <div class="topbar-right">
+    <span id="status" class="status" role="status"></span>
+    <button type="button" id="btn-theme" class="icon" title="Toggle light / dark" aria-label="Toggle light or dark theme">◐</button>
+    <button type="button" id="btn-about" class="primary">About</button>
+  </div>
+</header>
+
+<main>
+  <aside id="editor" class="rail left" aria-label="Model editor"></aside>
+
+  <section class="canvas-wrap">
+    <div class="canvas-toolbar">
+      <button type="button" id="btn-relayout" class="mini">Re-layout</button>
+      <button type="button" id="btn-fit" class="mini">Fit</button>
+      <span class="zoomers">
+        <button type="button" id="btn-zoom-out" class="mini" aria-label="Zoom out">−</button>
+        <button type="button" id="btn-zoom-in" class="mini" aria-label="Zoom in">+</button>
+      </span>
+      <span class="legend">
+        <span class="lg"><span class="lg-var"></span>proposition</span>
+        <span class="lg"><span class="lg-fac"></span>factor</span>
+        <span class="lg"><span class="lg-obs">✓</span>observed</span>
+        <span class="lg-hint">drag to move · scroll to zoom · double-click to fit</span>
+      </span>
+    </div>
+    <div id="canvas" class="canvas"></div>
+  </section>
+
+  <aside id="results" class="rail right" aria-label="Results"></aside>
+</main>
+
+<dialog id="about">
+  <div class="about-wrap">
+    <button type="button" id="about-close" class="icon close" aria-label="Close">×</button>
+    <div id="about-body"></div>
+  </div>
+</dialog>
+
+<script type="module">
+  import { boot } from "./js/ui/app.js";
+  boot();
+</script>
+</body>
+</html>
